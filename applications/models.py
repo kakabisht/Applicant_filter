@@ -23,7 +23,8 @@ class Application(models.Model):
         Application model containing details of the application, along with data base restrictions and constraints
     '''
 
-    user = models.CharField(max_length=50)
+    user = models.ForeignKey(
+        User, related_name="applications", on_delete=models.CASCADE)
     company = models.ForeignKey(
         Company, related_name="applications", null=True, blank=True, on_delete=models.CASCADE)
     email = models.EmailField(max_length=254, unique=True)
@@ -31,30 +32,29 @@ class Application(models.Model):
     linkedin = models.URLField(max_length=254, blank=True)
     portfolio_site = models.URLField(max_length=254, blank=True)
     resume = models.FileField(upload_to='resume/')
-    Tell_us_something_about_yourself = models.TextField(
+    tell_us_something_about_yourself = models.TextField(
         max_length=150)
-    Tell_us_about_your_weaknesses = models.TextField(
+    tell_us_about_your_weaknesses = models.TextField(
         max_length=150)
-    Apart_from_core_technical_skills_what_else_can_you_bring_to_the_team = models.TextField(
+    apart_from_core_technical_skills = models.TextField(
         max_length=150)
-    How_do_you_handle_stress_and_Pressure = models.TextField(
+    how_do_you_handle_stress_and_Pressure = models.TextField(
         max_length=150)
-    message_html = models.TextField(editable=False)
     do_you_like_to_work_in_a_team_or_work_alone = models.CharField(
         max_length=50)
     What_do_you_prefer_on_weekends_staying_home_or_going_out = models.CharField(
         max_length=50)
     would_you_correct_your_colleagues_or_wont_bother = models.CharField(
         max_length=50)
-    in_a_group_which_person_has_your_attention_overspeaking_one_or_observing_one = models.CharField(
+    in_a_group_which_person_has_your_attention = models.CharField(
         max_length=50)
     do_you_believe_you_can_achieve_everything = models.CharField(
         max_length=50)
     What_attracts_you_science_or_music = models.CharField(
         max_length=50)
-    do_you_like_to_plan_before_things_or_planning_after_going_into_things = models.CharField(
+    do_you_like_to_plan_before_or_after_things = models.CharField(
         max_length=50)
-    would_you_change_your_preferences_from_tea_to_coffee_or_vice_versa = models.CharField(
+    would_you_change_your_preferences = models.CharField(
         max_length=50)
 
     class Meta:
@@ -68,8 +68,6 @@ class Application(models.Model):
         '''
         Saving application form into the data base, perfoming compute on text messages.
         '''
-        self.message_html = misaka.html(self.message)
-
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):

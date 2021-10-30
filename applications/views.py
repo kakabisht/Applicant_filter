@@ -73,9 +73,9 @@ class CreateApplication(LoginRequiredMixin, SelectRelatedMixin, generic.CreateVi
     # Select the model and it's fields
     model = models.Application
     fields = ['user', 'company', 'email', 'github', 'linkedin',
-              'portfolio_site', 'resume', 'voice',
-              'Tell_us_something_about_yourself', 'Tell_us_about_your_weaknesses', 'Apart_from_core_technical_skills_what_else_can_you_bring_to_the_team', 'How_do_you_handle_stress_and_Pressure',
-              'do_you_like_to_work_in_a_team_or_work_alone', 'What_do_you_prefer_on_weekends_staying_home_or_going_out', 'would_you_correct_your_colleagues_or_wont_bother', 'in_a_group_which_person_has_your_attention_overspeaking_one_or_observing_one', 'do_you_believe_you_can_achieve_everything', 'What_attracts_you_science_or_music', 'do_you_like_to_plan_before_things_or_planning_after_going_into_things', 'would_you_change_your_preferences_from_tea_to_coffee_or_vice_versa'
+              'portfolio_site', 'resume',
+              'tell_us_something_about_yourself', 'tell_us_about_your_weaknesses', 'apart_from_core_technical_skills', 'how_do_you_handle_stress_and_Pressure',
+              'do_you_like_to_work_in_a_team_or_work_alone', 'What_do_you_prefer_on_weekends_staying_home_or_going_out', 'would_you_correct_your_colleagues_or_wont_bother', 'in_a_group_which_person_has_your_attention', 'do_you_believe_you_can_achieve_everything', 'What_attracts_you_science_or_music', 'do_you_like_to_plan_before_or_after_things', 'would_you_change_your_preferences'
               ]
 
     def form_valid(self, form):
