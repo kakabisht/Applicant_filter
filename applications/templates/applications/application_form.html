@@ -1,0 +1,220 @@
+{% extends "applications/application_base.html" %}
+<!-- exteding application_base.html -->
+{% load bootstrap4 %}
+
+<!-- inheriting into application_content -->
+{% block application_content %}
+<h2>Create New Application</h2>
+<h4> In the message text box, tell us why are you interessted in tech?  </h4>
+<form method="POST" action="{% url 'applications:create' %}" id="postForm" enctype ="multipart/form-data">
+	{% csrf_token %}
+	<!-- For security feature, csrf token is used -->
+	{% bootstrap_form form %}
+
+	<div class='question'>
+		<div class='question-headline'>
+		  1. imagine yourself in between an argument 
+		</div>
+		<hr class="line">
+		<div class='question-answers'>
+		  <div class='answer'>
+			<input id='q1a1' name='question-1' type='radio' value='0'><label for="q1a1">you'll say whatver you feel like without hesitating </label></input>
+		  </div>
+		<div class='answer'>
+			<input id='q1a2' name='question-1' type='radio' value='1'><label for="q1a2">you'll stay on your fact and prove it </label></input>
+		</div>
+		<div class='answer'>
+			<input id='q1a3' name='question-1' type='radio' value='2'><label for="q1a3">you'll sit down with that person and calmly put your points</label></input>
+		</div>
+		<div class='answer'>
+		  <input id='q1a4' name='question-1' type='radio' value='3'><label for="q1a4">you'll try to cold down the situation and ignore it </label></input>
+	  </div>
+		</div>
+		</div>
+	
+		<div class='question'>
+		<div class='question-headline'>
+		  2. what you like for weekends 
+		</div>
+		<hr class="line">
+		<div class='question-answers'>
+		<div class='answer'>
+			<input id='q2a1' name='question-2' type='radio' value='0'><label for="q2a1">going out partying with friends </label></input>
+		</div>
+		<div class='answer'>
+			<input id='q2a2' name='question-2' type='radio' value='1'><label for="q2a2">travelling alone </label></input>
+		</div>
+		<div class='answer'>
+			<input id='q2a3' name='question-2' type='radio' value='2'><label for="q2a3">sitting in your appartment and watch tv </label></input>
+		</div>
+		<div class='answer'>
+		  <input id='q1a4' name='question-2' type='radio' value='3'><label for="q1a4">spending time with family and friends </label></input>
+	  </div>
+		</div>
+		</div>
+	
+	  <div class='question'>
+	  <div class='question-headline'>
+		3. what would you generally do in an office party 
+	  </div>
+	  <hr class="line">
+	  <div class='question-answers'>
+		<div class='answer'>
+		  <input id='q3a1' name='question-3' type='radio' value='0'><label for="q3a1">tearinng it up on the dance floor </label></input>
+		</div>
+		<div class='answer'>
+		  <input id='q3a2' name='question-3' type='radio' value='1'><label for="q3a2">you'll try to socialize and get to know new people </label></input>
+		</div>
+		<div class='answer'>
+		  <input id='q3a3' name='question-3' type='radio' value='2'><label for="q3a3">on the side lines observing with a friend </label></input>
+		</div>
+		<div class='answer'>
+		  <input id='q1a4' name='question-3' type='radio' value='3'><label for="q1a4">you would stick to a person you know and focus and food and drinks </label></input>
+	  </div>
+	  </div>
+	  </div>
+	
+	  <div class='question'>
+		<div class='question-headline'>
+		  4. what would you do if someone you know is going through a rough patch 
+		</div>
+		<hr class="line">
+		<div class='question-answers'>
+		  <div class='answer'>
+			<input id='q1a1' name='question-4' type='radio' value='0'><label for="q1a1">you'll tell them to focus on work and keep constant watch on them </label></input>
+		  </div>
+		<div class='answer'>
+			<input id='q1a2' name='question-4' type='radio' value='1'><label for="q1a2">you'll motivate them and try to help- them in thier work</label></input>
+		</div>
+		<div class='answer'>
+			<input id='q1a3' name='question-4' type='radio' value='2'><label for="q1a3">you'll try to cheer them up and distract them with fun things  </label></input>
+		</div>
+		<div class='answer'>
+		  <input id='q1a4' name='question-4' type='radio' value='3'><label for="q1a4">you'll console him even if it's his wrong doing </label></input>
+	  </div>
+		</div>
+		</div>
+		  
+	  <div class='question'>
+		<div class='question-headline'>
+		  5. how do you best sleep at night  
+		</div>
+		<hr class="line">
+		<div class='question-answers'>
+		  <div class='answer'>
+			<input id='q1a1' name='question-5' type='radio' value='0'><label for="q1a1">with a little music and a nice cool room </label></input>
+		  </div>
+		<div class='answer'>
+			<input id='q1a2' name='question-5' type='radio' value='1'><label for="q1a2">as long as i'm alone i intend to sleep just fine </label></input>
+		</div>
+		<div class='answer'>
+			<input id='q1a3' name='question-5' type='radio' value='2'><label for="q1a3">sleep?what's that </label></input>
+		</div>
+		<div class='answer'>
+		  <input id='q1a4' name='question-5' type='radio' value='3'><label for="q1a4">just turn off the lights </label></input>
+	  </div>
+		</div>
+		</div>
+			
+	  <div class='question'>
+		<div class='question-headline'>
+		  6. how positive are you 
+		</div>
+		<hr class="line">
+		<div class='question-answers'>
+		  <div class='answer'>
+			<input id='q1a1' name='question-6' type='radio' value='0'><label for="q1a1">i try to spin positively but life gets hard sometimes </label></input>
+		  </div>
+		<div class='answer'>
+			<input id='q1a2' name='question-6' type='radio' value='1'><label for="q1a2">honeslty cynical. not all things are roses and honey </label></input>
+		</div>
+		<div class='answer'>
+			<input id='q1a3' name='question-6' type='radio' value='2'><label for="q1a3">i'm always pretty positive </label></input>
+		</div>
+		<div class='answer'>
+		  <input id='q1a4' name='question-6' type='radio' value='3'><label for="q1a4">based on current situation and facts </label></input>
+	  </div>
+		</div>
+		</div>   
+		
+	  <div class='question'>
+		<div class='question-headline'>
+		  7. field of interests 
+		</div>
+		<hr class="line">
+		<div class='question-answers'>
+		  <div class='answer'>
+			<input id='q1a1' name='question-7' type='radio' value='0'><label for="q1a1">Reading books ,coding and solving puzzles </label></input>
+		  </div>
+		<div class='answer'>
+			<input id='q1a2' name='question-7' type='radio' value='1'><label for="q1a2">music, poetry and writing </label></input>
+		</div>
+		<div class='answer'>
+			<input id='q1a3' name='question-7' type='radio' value='2'><label for="q1a3">trekking and exploring </label></input>
+		</div>
+		<div class='answer'>
+		  <input id='q1a4' name='question-7' type='radio' value='3'><label for="q1a4">sports and competitive games </label></input>
+	  </div>
+		</div>
+		</div>
+		  
+	  <div class='question'>
+		<div class='question-headline'>
+		  8. are you more of early bird or night owl 
+		</div>
+		<hr class="line">
+		<div class='question-answers'>
+		  <div class='answer'>
+			<input id='q1a1' name='question-8' type='radio' value='0'><label for="q1a1">Depend if it's a weekend or not </label></input>
+		  </div>
+		<div class='answer'>
+			<input id='q1a2' name='question-8' type='radio' value='1'><label for="q1a2">a bit of both </label></input>
+		</div>
+		<div class='answer'>
+			<input id='q1a3' name='question-8' type='radio' value='2'><label for="q1a3">Night owl </label></input>
+		</div>
+		<div class='answer'>
+		  <input id='q1a4' name='question-8' type='radio' value='3'><label for="q1a4">Early bird </label></input>
+	  </div>
+		</div>
+		</div>     
+			
+	  <div class='question'>
+		<div class='question-headline'>
+		  9. at the end of the day how do you recharge yourself ?
+		</div>
+		<hr class="line">
+		<div class='question-answers'>
+		  <div class='answer'>
+			<input id='q1a1' name='question-9' type='radio' value='0'><label for="q1a1">spending alone time doing my hobbies </label></input>
+		  </div>
+		<div class='answer'>
+			<input id='q1a2' name='question-9' type='radio' value='1'><label for="q1a2">sitting down with people </label></input>
+		</div>
+		</div>
+		</div>
+	
+	  <div class='question'>
+		<div class='question-headline'>
+		  10. would you choose following heart or your thoughts ? 
+		</div>
+		<hr class="line">
+		<div class='question-answers'>
+		  <div class='answer'>
+			<input id='q1a1' name='question-10' type='radio' value='0'><label for="q1a1">heart is the way</label></input>
+		  </div>
+		<div class='answer'>
+			<input id='q1a2' name='question-10' type='radio' value='1'><label for="q1a2">brain op</label></input>
+		</div>
+		</div>
+		</div>
+
+
+	{% buttons %}
+	<div style="text-align: center">
+		<button type="submit" class="btn btn-primary btn-larg vertical-cente">Post</button>
+	</div>
+	<br>
+	{% endbuttons %}
+</form>
+{% endblock %}

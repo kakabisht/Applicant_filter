@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{# at the terminal, run pip install django-bootstrap4 #}
+{% load bootstrap4 %}
+
+{% block content %}
+
+<div class="card">
+  <div class="card-body">
+    <div class="information" style="padding: 10px;">
+      <h1 class="text-center">Sign Up page</h2>
+      <hr>  
+      <br>       
+    <form method="POST" class="form">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      {% buttons %}
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      {% endbuttons %}
+      </form>
+    </div>  
+  </div>
+</div>
+{% endblock %}

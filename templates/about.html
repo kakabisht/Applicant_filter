@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- inherting to base.html file -->
+<title>About us</title>
+<section id="sec-about" class="">
+  <div class="card">
+    <div class="card-body">
+        <div class="information" style="padding: 10px;">
+          <div class="row justify-content-center text-center">
+            <div class="col-md-10 col-lg-8">
+              <h1 style="text-align:center">About project</h1>
+              <hr>
+              <p class="mt-4 mb-4">Our application aims to take personality and sentiment during the resume filtration process. 
+                The ultimate motive is to provide a better experience for our intended audience.
+                Our project will only be implemented as a software and will have no extra hardware needed.
+                </p>
+              <img src="https://files.realpython.com/media/The-Ultimate-Guide-To-Speech-Recognition-With-Python_Watermarked.c0511baf27ba.jpg" alt="An image analysis pic" style="width:500px;height:300px;"/>
+            </div>
+          </div>
+          <br>
+          <!-- Working of voice analysis API -->
+          <h3>The Personality prediction API</h3>
+          <ol>   
+              <li>Input: Takes String as an Input inside a JSON package.</li>
+              <li>Output: Returns Personality predicted as a String inside a JSON package.</li>
+          </ol>
+          <br>
+
+          <h3>The Sentiment prediction API</h3>
+          <ol>   
+              <li>Input: Takes String as an Input inside a JSON package.</li>
+              <li>Output: Returns Sentiment predicted as a String inside a JSON package.</li>
+    
+          </ol>
+        </div>
+      </div>
+    </div>
+</section>
+    
+{% endblock %}

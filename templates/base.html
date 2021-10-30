@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- Used to enable loading static files inside HTML in Django framework -->
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <!-- Api's href for CSS, fonts and bootstrap -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel=”stylesheet” href="{% static 'css/master.css' %}" type="text/css" >
+  <title>Resume Filter</title>
+
+</head>
+<style>
+  body, html {
+margin: 0;
+font-family: Roboto, Arial, helvetica, sans-serif;
+}
+
+a {
+outline: none;
+}
+
+.navbar-container {
+text-align: center;
+background-color: #009688;
+box-shadow: 0px -20px 5px 20px #333333;
+padding: 10px;
+font-size: 0;
+}
+
+.navbar-container ul {
+margin: 0;
+padding: 0;
+text-align: right;
+display: inline-block;
+vertical-align: middle;
+}
+
+.navbar-container ul li {
+display: inline-block;
+font-size: 16px;
+}
+
+.navbar-container ul li a {
+color: #ffffff;
+text-decoration: none;
+display: inline-block;	
+padding: 10px;
+transition: color 0.5s;
+}
+
+.navbar-container ul li .underline {
+height: 3px;
+background-color: transparent;
+width: 0%;
+transition: width 0.2s, background-color 0.5s;
+margin: 0 auto;
+}
+
+.navbar-container ul li.active-link .underline {
+width: 100%;
+background-color: white;
+}
+
+.navbar-container ul li:hover .underline {
+background-color: white;
+width: 100%;
+}
+
+
+.navbar-container ul li:active a {
+transition: none;
+color: rgba(255,255,255,0.76);
+}
+
+.navbar-container ul li:active .underline {
+transition: none;
+background-color: rgba(255,255,255,0.76);
+}
+.card-container{
+background-color: #ffc8dd;
+margin-right: 120px;
+margin-left: 120px;
+margin-top: 70px;
+margin-bottom: 70px;
+}
+.footer {
+position: relative;
+margin-top: 45px;
+}
+
+.footer .container-fluid {
+padding: 60px 0 0 0;
+}
+
+.footer .footer-info {
+position: relative;
+width: 100%;
+text-align: center;
+}
+
+.footer .footer-info h2 {
+margin-bottom: 20px;
+font-size: 18px;
+font-weight: 700;
+color: #000;
+}
+
+.footer .footer-info h3 {
+margin-bottom: 25px;
+font-size: 14px;
+font-weight: 600;
+color: #000;
+}
+
+.footer .footer-menu {
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+.footer .footer-menu p {
+color: #ffafcc;
+font-size: 12px;
+font-weight: 600;
+line-height: 20px;
+padding: 0 15px;
+border-right: 1px solid rgb(26, 23, 23);
+}
+
+.footer .footer-menu p:last-child {
+border: none;
+}
+
+</style>
+
+<!-- Creating a Navbar using HTML and CSS -->
+<div class="wrapper" >
+  <section class="hero">
+    <header>
+      <div class="container">
+        <nav class="navbar navbar-light navbar-toggleable-sm" style="background-color: #CEEDF8; ">
+          <a class="navbar-brand mb-0" href="{% url 'home' %}" class="btn btn-simple">Resume Filter</a>
+
+          <div id="headerNav" class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <div class="navbar-nav ml-auto">
+                <!-- Having different navbar, if the user is authenticated -->
+                {% if user.is_authenticated %}
+                  <a class="nav-item nav-link" href="{% url 'home' %}" class="btn btn-simple">Home</a>
+                  <a class="nav-item nav-link" href="{% url 'about' %}" class="btn btn-simple">About</a>
+                  <a class="nav-item nav-link" href="{% url 'companys:all' %}" class="btn btn-simple">Companies</a>
+                  <a class="nav-item nav-link" href="{% url 'accounts:logout' %}" class="btn btn-simple">Log out</a>
+                {% else %}
+                  <a class="nav-item nav-link" href="{% url 'home' %}" class="btn btn-simple">Home</a>
+                  <a class="nav-item nav-link" href="{% url 'about' %}" class="btn btn-simple">About</a>
+                  <a class="nav-item nav-link" href="{% url 'companys:all' %}"class="btn btn-simple">Companies</a>
+                  <a class="nav-item nav-link" href="{% url 'accounts:login' %}" class="btn btn-simple">Log in</a>
+                  <a class="nav-item nav-link" href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign up</a>
+                {% endif %}
+              </div>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+  </section>
+  <body style="background-color: #a2d2ff;">
+
+  <div class="card card-container" >
+    <div class="card-body" style="background-color:#ffc8dd">
+      {% block content %}
+      <!-- This is where we will inherit our data in the page -->
+    {% endblock %}    
+  </div>
+  </div>
+  <!-- Creating a footer using Html and CSS -->
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="footer-info">
+            <h2>Developed by:</h2>
+            <div class="footer-menu">
+                <p>Hridyesh Bisht</p>
+                <p>Kavya Suthar</p>
+                <p>Sejal Srestha</p>
+            </div>
+        </div>
+    </div>
+  </footer>
+</div>
+
+<!-- API's for jquery and js files  -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+<script src="{% static 'js/master.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+</body>
+</html>
