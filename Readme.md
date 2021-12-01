@@ -1,8 +1,8 @@
 Being in senior year, we were looking for internships. After giving a few tests, we figured there might be a way to find applicants whose personality type and values match with the company. We developed
 
 1. A full-stack CRM software in Django
-2. [A personality prediction ML API in Flask]()
-3. [A sentiment prediction DL API in Flask]()
+2. [A personality prediction ML API in Flask](https://github.com/kakabisht/Predicting-personality-from-text-using-AI)
+3. [A sentiment prediction DL API in Flask](https://github.com/kavy9/emotion-prediction-api)
 
 ### How to run this application
 
